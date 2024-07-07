@@ -1,5 +1,9 @@
+import os
 import re
+import logging
 from collections import defaultdict
+from datetime import datetime
+from pathlib import Path
 
 config = {
     "R": 10,
@@ -8,16 +12,22 @@ config = {
     "C": 3
 }
 
+
+#pylint: disable=logging-fstring-interpolation
+#pylint: enable=logging-not-lazy
+
 pattern = re.compile(r'^(R|S|V|C)(\d+):\s')
 
 def check_lines(filepath, cfg):
     found = defaultdict(set)
+    line_numbers_dict = defaultdict(int)
     with open(filepath, 'r', encoding="utf-8") as file:
-        for line in file:
+        for line_number, line in enumerate(file):
             match = pattern.match(line)
             if match:
                 q_key = match.group(1)
                 number = int(match.group(2))
+                line_numbers_dict[(q_key + str(number))] = "Line " + f"{line_number + 1}"
                 found[q_key].add(number)
     missing_entries = defaultdict(int)
     extra_entries = defaultdict(int)
@@ -31,20 +41,33 @@ def check_lines(filepath, cfg):
         if missing_numbers:
             missing_entries[q_key] = sorted(missing_numbers)
 
-    return missing_entries, extra_entries
+    return missing_entries, extra_entries, line_numbers_dict
 
 if __name__ == "__main__":
-    file_path = "README.md"
-    (missing_questions, extra_questions) = check_lines(file_path, config)
+    LOG_PATH = Path('readme-check-logs')
+    if not os.path.exists(LOG_PATH):
+        os.makedirs(LOG_PATH)
+    CURRENT_LOG = Path(str(datetime.now().strftime("%Y-%m-%d-%H-%M-%S-readme-check.log")))
+    FILE_PATH = "README.md"
+    logging.basicConfig(level=logging.INFO,
+                        format='%(message)s',
+                        handlers=[
+                            logging.FileHandler(LOG_PATH / CURRENT_LOG ),  # Log to a file
+                            logging.StreamHandler()  # Log to the console
+                        ])
+    (missing_questions, extra_questions, line_no) = check_lines(FILE_PATH, config)
+    logging.info("\nIncluded items:")
+    for k,v in line_no.items():
+        logging.info(f"{k}: \t{v}")
     if len(extra_questions) != 0:
-        print("\nExtra items:")
+        logging.info("\nExtra items:")
         for key, val in extra_questions.items():
-            print(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
+            logging.info(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
     if len(missing_questions) == 0:
-        print("\nNo missing items!")
+        logging.info("\nNo missing items!")
     else:
-        print("\nMissing items:")
+        logging.info("\nMissing items:")
         for key, val in missing_questions.items():
-            print(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
+            logging.info(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
 
-    print('\n')
+    logging.info('\n')
