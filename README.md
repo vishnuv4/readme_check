@@ -9,7 +9,7 @@ Internal repo: Not to be shared with students. The idea is to configure a checke
 
 To create the executable, make the changes you want to to the ```check.py``` script and run ```.\compile```.
 
-To run this script, open a powershell terminal in the repo root and run ```.\check```
+To run the executable, open a powershell terminal in the repo root and run ```.\check```
 
 S1: Test
 
