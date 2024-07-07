@@ -1,12 +1,11 @@
 This is a script that will check if lines in the following format are present in the readme.
 Depending on the config dict in checker.py, it'll see which items are missing and which are extra.
+Works with windows on powershell.
 
 To create an exe out of a python script, run ```pip install pyinstaller``` and then ```pyinstaller check.py```.
 Then copy the contents of the ```dist\``` folder into the ```readme_check\``` folder
 
 To run this script, open a powershell terminal in the repo root and run ```.\check```
-
-Note: if you use linux or another operating system, feel free to modify the ```check.ps1``` script to work with your OS - but do not change anything inside the ```readme_check``` folder.
 
 S1: Test
 
