@@ -55,16 +55,19 @@ if __name__ == "__main__":
                             logging.FileHandler(LOG_PATH / CURRENT_LOG ),  # Log to a file
                             logging.StreamHandler()  # Log to the console
                         ])
-    (missing_questions, extra_questions, line_no) = check_lines(FILE_PATH, config)
-    logging.info("\nIncluded items:")
-    for k,v in line_no.items():
-        logging.info(f"{k}: \t{v}")
+    (missing_questions, extra_questions, included_items) = check_lines(FILE_PATH, config)
+    if len(included_items) != 0:
+        logging.info("\nIncluded items:")
+        for k,v in included_items.items():
+            logging.info(f"{k}: \t{v}")
+    else:
+        logging.info("\nNo included items")
     if len(extra_questions) != 0:
         logging.info("\nExtra items:")
         for key, val in extra_questions.items():
             logging.info(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
     if len(missing_questions) == 0:
-        logging.info("\nNo missing items!")
+        logging.info("\nNo missing items")
     else:
         logging.info("\nMissing items:")
         for key, val in missing_questions.items():
