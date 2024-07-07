@@ -1,1 +1,1 @@
-.\readme_check\check.exe
+& .\readme_check\check.exe
