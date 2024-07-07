@@ -13,7 +13,7 @@ To run the executable, open a powershell terminal in the repo root and run ```.\
 
 ===========================================================================
 
-Example README.md
+Example README.md with common errors a student might make 
 
 :S1: Test
 
@@ -37,6 +37,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 :R7: Another test
 
+:R1: This is a duplicate
+
+:I2:
+
+Some image here
+
 :C2: project\src\part_d.c
 
 Random filler text here.
@@ -47,8 +53,16 @@ Random filler text here.
 
 Screenshot here.
 
-:R11: Test
+This is the answer to :R11:.
+
+Blah blah blah
 
 :R2: < insert ESE 5190 stuff here >
 
 :R12: Test
+
+:R3:
+
+:R4:
+
+:R8:
