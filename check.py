@@ -19,8 +19,8 @@ def check_lines(filepath, cfg):
                 q_key = match.group(1)
                 number = int(match.group(2))
                 found[q_key].add(number)
-    missing_entries = {}
-    extra_entries = {}
+    missing_entries = defaultdict(int)
+    extra_entries = defaultdict(int)
     for q_key, max_count in cfg.items():
         expected_numbers = set(range(1, max_count+1))
         found_numbers = found[q_key]
