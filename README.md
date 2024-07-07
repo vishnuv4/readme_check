@@ -11,6 +11,10 @@ To create the executable, make the changes you want to to the ```check.py``` scr
 
 To run the executable, open a powershell terminal in the repo root and run ```.\check```
 
+========================================================================================================================
+
+Example README.md
+
 S1: Test
 
 S2: Test
