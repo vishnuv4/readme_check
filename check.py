@@ -7,12 +7,11 @@ from pathlib import Path
 
 config = {
     "R": 10,
-    "S": 3,
-    "V": 2,
     "I": 2,
-    "C": 3
+    "S": 3,
+    "C": 3,
+    "V": 2
 }
-
 
 #pylint: disable=logging-fstring-interpolation
 #pylint: enable=logging-not-lazy
