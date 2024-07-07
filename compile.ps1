@@ -13,4 +13,7 @@ pyinstaller check.py
 Write-output("Copying distributable to readme_check")
 if (Test-Path .\readme_check) {Remove-Item -Recurse readme_check}
 Copy-Item -Recurse dist\* readme_check\
+Remove-Item -Recurse .\build
+Remove-Item -Recurse .\dist
+Remove-Item .\check.spec
 deactivate
