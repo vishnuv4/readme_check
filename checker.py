@@ -5,9 +5,10 @@ config = {
     "R": 10,
     "S": 3,
     "V": 2,
+    "C": 3
 }
 
-pattern = re.compile(r'^(R|S|V)(\d+):\s')
+pattern = re.compile(r'^(R|S|V|C)(\d+):\s')
 
 def check_lines(filepath, cfg):
     found = defaultdict(set)

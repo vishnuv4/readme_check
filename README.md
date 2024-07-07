@@ -15,11 +15,15 @@ R3: TEST
 
 R4: Blah
 
+C1: project\part_a.c
+
 V1: Test
 
 R6: Test
 
 R7: Another test
+
+C2: project\src\part_d.c
 
 V2: Test
 
