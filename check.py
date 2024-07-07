@@ -37,13 +37,13 @@ if __name__ == "__main__":
     file_path = "README.md"
     (missing_questions, extra_questions) = check_lines(file_path, config)
     if len(extra_questions) != 0:
-        print("\nExtra items found")
+        print("\nExtra items:")
         for key, val in extra_questions.items():
             print(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
     if len(missing_questions) == 0:
         print("\nNo missing items!")
     else:
-        print("\nMissing items found")
+        print("\nMissing items:")
         for key, val in missing_questions.items():
             print(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
 
