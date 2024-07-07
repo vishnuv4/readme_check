@@ -16,7 +16,7 @@ config = {
 #pylint: disable=logging-fstring-interpolation
 #pylint: enable=logging-not-lazy
 
-pattern = re.compile(r'^(R|S|V|C)(\d+):\s')
+pattern = re.compile(r'^(R|S|V|C)(\d+):.*\n')
 
 def check_lines(filepath, cfg):
     found = defaultdict(set)
