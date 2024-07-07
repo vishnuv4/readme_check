@@ -32,7 +32,7 @@ def check_lines(filepath, cfg):
                     line_numbers_dict[(q_key + str(number))] = "Line " + f"{line_number + 1}"
                     found[q_key].add(number)
                 else:
-                    duplicate_dict[q_key + str(number)] = "Line " + f"{line_number + 1}"
+                    duplicate_dict["Line " + f"{line_number + 1}"] = q_key + str(number)
     missing_entries = defaultdict(int)
     extra_entries = defaultdict(int)
     for q_key, max_count in cfg.items():
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     logging.info("\nDUPLICATE:")
     if len(duplicates) != 0:
         for key, val in duplicates.items():
-            logging.info(f"{key}\t{val}")
+            logging.info(f"{val}\t{key}")
     else:
         logging.info("NONE")
 

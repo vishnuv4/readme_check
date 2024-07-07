@@ -61,8 +61,10 @@ Blah blah blah
 
 :R12: Test
 
-:R3:
+:R3: Blah
 
-:R4:
+:R4: Test
 
-:R8:
+:R1: Test
+
+:R8: Test
