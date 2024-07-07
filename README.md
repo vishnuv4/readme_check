@@ -1,7 +1,9 @@
 This is a script that will check if lines in the following format are present in the readme.
 Depending on the config dict in checker.py, it'll see which items are missing and which are extra.
 
-To run this script, open a terminal in the repo root and run ```python -m check```
+To run this script, open a powershell terminal in the repo root and run ```.\check```
+
+Note: if you use linux or another operating system, feel free to modify the ```check.ps1``` script to work with your OS - but do not change anything inside the ```readme_check``` folder.
 
 S1: Test
 
