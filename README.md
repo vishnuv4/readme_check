@@ -19,15 +19,9 @@ S3: Lorem ipsum
 
 R1: Placeholder text
 
-R3: TEST
-
-R4: Blah
-
-C3: code.c
-
 R9: test
 
-C1: project\part_a.c
+C1: code.c
 
 V1: Test
 
@@ -38,8 +32,6 @@ R200:
 R7: Another test
 
 C2: project\src\part_d.c
-
-V2: Test
 
 Random filler text here.
 
