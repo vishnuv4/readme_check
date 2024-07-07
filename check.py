@@ -47,13 +47,13 @@ if __name__ == "__main__":
     LOG_PATH = Path('readme-check-logs')
     if not os.path.exists(LOG_PATH):
         os.makedirs(LOG_PATH)
-    CURRENT_LOG = Path(str(datetime.now().strftime("%Y-%m-%d-%H-%M-%S-readme-check.log")))
+    CURRENT_LOG = Path(str(datetime.now().strftime("%Y-%m-%d-%H-%M-%S-readme-check.txt")))
     FILE_PATH = "README.md"
     logging.basicConfig(level=logging.INFO,
                         format='%(message)s',
                         handlers=[
-                            logging.FileHandler(LOG_PATH / CURRENT_LOG ),  # Log to a file
-                            logging.StreamHandler()  # Log to the console
+                            logging.FileHandler(LOG_PATH / CURRENT_LOG),
+                            logging.StreamHandler()
                         ])
     (missing_questions, extra_questions, included_items) = check_lines(FILE_PATH, config)
     if len(included_items) != 0:
