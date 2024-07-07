@@ -16,14 +16,14 @@ config = {
 #pylint: disable=logging-fstring-interpolation
 #pylint: enable=logging-not-lazy
 
-pattern = re.compile(r'^(R|S|V|C)(\d+):.*\n')
+pattern = re.compile(r'.*:(R|S|V|C)(\d+):.*\n')
 
 def check_lines(filepath, cfg):
     found = defaultdict(set)
     line_numbers_dict = defaultdict(int)
     with open(filepath, 'r', encoding="utf-8") as file:
         for line_number, line in enumerate(file):
-            match = pattern.match(line)
+            match = pattern.search(line)
             if match:
                 q_key = match.group(1)
                 number = int(match.group(2))
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     if len(included_items) != 0:
         logging.info("\nIncluded items:")
         for k,v in included_items.items():
-            logging.info(f"{k}: \t{v}")
+            logging.info(f"{k}\t{v}")
     else:
         logging.info("\nNo included items")
     if len(extra_questions) != 0:
