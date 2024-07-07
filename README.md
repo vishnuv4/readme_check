@@ -4,7 +4,7 @@ Works with windows on powershell.
 
 Internal repo: Not to be shared with students. The idea is to configure a checker for each lab assignment and provide it in each student's Github classroom repo. Things to include:
 - The readme_check folder for each lab assignment
-- The check.ps1 script or the check.bat script
+- The check.bat script
 - gitignore with readme_check_logs included
 
 To create the executable, make the changes you want to to the ```check.py``` script and run ```.\compile```.
