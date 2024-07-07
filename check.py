@@ -17,7 +17,7 @@ config = {
 #pylint: disable=logging-fstring-interpolation
 #pylint: enable=logging-not-lazy
 
-pattern = re.compile(r'.*:(R|I|S|C|V|r|i|s|c|v)(\d+):.*\n')
+pattern = re.compile(r'.*:(R|I|S|C|V|r|i|s|c|v)(\d+):.*')
 
 def check_lines(filepath, cfg):
     found = defaultdict(set)
@@ -61,25 +61,33 @@ if __name__ == "__main__":
                             logging.StreamHandler()
                         ])
     (missing_questions, extra_questions, included_items, duplicates) = check_lines(FILE_PATH, config)
+
+    logging.info("\nINCLUDED:")
     if len(included_items) != 0:
-        logging.info("\nIncluded items:")
         for key,val in included_items.items():
             logging.info(f"{key}\t{val}")
     else:
-        logging.info("\nNo included items")
-    if len(extra_questions) != 0:
-        logging.info("\nExtra items:")
-        for key, val in extra_questions.items():
-            logging.info(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
-    if len(missing_questions) == 0:
-        logging.info("\nNo missing items. You are done!")
-    else:
-        logging.info("\nMissing items:")
-        for key, val in missing_questions.items():
-            logging.info(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
+        logging.info("NONE")
+
+    logging.info("\nDUPLICATE:")
     if len(duplicates) != 0:
-        logging.info("\nDuplicate items:")
         for key, val in duplicates.items():
             logging.info(f"{key}\t{val}")
+    else:
+        logging.info("NONE")
+
+    logging.info("\nEXTRA:")
+    if len(extra_questions) != 0:
+        for key, val in extra_questions.items():
+            logging.info(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
+    else:
+        logging.info("NONE")
+    
+    logging.info("\nMISSING:")
+    if len(missing_questions) != 0:
+        for key, val in missing_questions.items():
+            logging.info(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
+    else:
+        logging.info("NONE. You are done!")
 
     logging.info('\n')
