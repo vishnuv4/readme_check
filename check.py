@@ -45,7 +45,7 @@ def check_lines(filepath, cfg):
         if missing_numbers:
             missing_entries[q_key] = sorted(missing_numbers)
 
-    return missing_entries, extra_entries, line_numbers_dict, duplicate_dict
+    return (missing_entries, extra_entries, line_numbers_dict, duplicate_dict)
 
 if __name__ == "__main__":
     LOG_PATH = Path('readme-check-logs')
