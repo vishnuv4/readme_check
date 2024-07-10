@@ -16,7 +16,7 @@ config = {
 #pylint: disable=logging-fstring-interpolation
 #pylint: enable=logging-not-lazy
 
-pattern = re.compile(r'.*:(R|I|S|C|V|r|i|s|c|v)(\d+):.*')
+pattern = re.compile(r'.*:(R|I|S|C|V)(\d+):.*')
 
 def check_lines(filepath, cfg):
     found = defaultdict(set)
@@ -61,6 +61,8 @@ if __name__ == "__main__":
                         ])
     (missing_questions, extra_questions, included_items, duplicates) = check_lines(FILE_PATH, config)
 
+    incomplete_flag = False
+
     logging.info("\nINCLUDED:")
     if len(included_items) != 0:
         for key,val in included_items.items():
@@ -70,6 +72,7 @@ if __name__ == "__main__":
 
     logging.info("\nDUPLICATE:")
     if len(duplicates) != 0:
+        incomplete_flag = True
         for key, val in duplicates.items():
             logging.info(f"{val}\t{key}")
     else:
@@ -77,6 +80,7 @@ if __name__ == "__main__":
 
     logging.info("\nEXTRA:")
     if len(extra_questions) != 0:
+        incomplete_flag = True
         for key, val in extra_questions.items():
             logging.info(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
     else:
@@ -84,9 +88,15 @@ if __name__ == "__main__":
     
     logging.info("\nMISSING:")
     if len(missing_questions) != 0:
+        incomplete_flag = True
         for key, val in missing_questions.items():
             logging.info(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
     else:
-        logging.info("NONE. You are done!")
+        logging.info("NONE")
 
+    if incomplete_flag == False:
+        logging.info('\n')
+        logging.info("=============")
+        logging.info("You are done!")
+        logging.info("=============")
     logging.info('\n')
