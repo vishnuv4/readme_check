@@ -6,9 +6,9 @@ from datetime import datetime
 from pathlib import Path
 
 config = {
-    "R": 10,
-    "I": 2,
-    "S": 3,
+    "R": 6,
+    "I": 3,
+    "S": 4,
     "C": 3,
     "V": 2
 }
