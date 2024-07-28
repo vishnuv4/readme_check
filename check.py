@@ -27,7 +27,7 @@ def print_green(string):
 
 def check_lines(filepath, cfg):
     found = defaultdict(set)
-    duplicate_dict = defaultdict(list)
+    duplicate_dict = defaultdict(str)
     line_numbers_dict = defaultdict(int)
     with open(filepath, 'r', encoding="utf-8") as file:
         for line_number, line in enumerate(file):
@@ -40,8 +40,8 @@ def check_lines(filepath, cfg):
                     found[q_key].add(number)
                 else:
                     duplicate_dict["Line " + f"{line_number + 1}"] = q_key + str(number)
-    missing_entries = defaultdict(int)
-    extra_entries = defaultdict(int)
+    missing_entries = defaultdict(set)
+    extra_entries = defaultdict(set)
     for q_key, max_count in cfg.items():
         expected_numbers = set(range(1, max_count+1))
         found_numbers = found[q_key]
@@ -52,7 +52,22 @@ def check_lines(filepath, cfg):
         if missing_numbers:
             missing_entries[q_key] = sorted(missing_numbers)
 
-    return (missing_entries, extra_entries, line_numbers_dict, duplicate_dict)
+    extra_entries_tags = []
+    for k,v in extra_entries.items():
+        for num in v:
+            extra_entries_tags.append(k + str(num))
+
+    extra_entries_lines = defaultdict(str)
+    with open(filepath, 'r', encoding="utf-8") as file:
+        for line_number, line in enumerate(file):
+            match = pattern.search(line)
+            if match:
+                q_key = match.group(1)
+                number = int(match.group(2))
+                if (q_key + str(number)) in extra_entries_tags:
+                    extra_entries_lines["Line " + f"{line_number + 1}"] = q_key + str(number)
+
+    return (missing_entries, extra_entries_lines, line_numbers_dict, duplicate_dict)
 
 if __name__ == "__main__":
     LOG_PATH = Path('readme-check-logs')
@@ -89,7 +104,7 @@ if __name__ == "__main__":
     if len(extra_questions) != 0:
         incomplete_flag = True
         for key, val in extra_questions.items():
-            logging.info(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
+            logging.info(f"{val}\t{key}")
     else:
         logging.info("NONE")
     

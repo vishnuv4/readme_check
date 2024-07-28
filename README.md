@@ -31,7 +31,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 (R27) 
 
-(R1) This is a duplicate
+(R1)
 
 (I2)
 
