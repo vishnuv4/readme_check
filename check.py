@@ -4,19 +4,26 @@ import logging
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
+from colorama import Fore,Style
 
 config = {
-    "R": 6,
+    "R": 10,
     "I": 3,
-    "S": 4,
+    "S": 2,
     "C": 3,
-    "V": 2
+    "V": 1
 }
 
 #pylint: disable=logging-fstring-interpolation
 #pylint: enable=logging-not-lazy
 
 pattern = re.compile(r'.*\((R|I|S|C|V)(\d+)\).*')
+
+def print_red(string):
+    print(f"{Fore.RED}{string}{Style.RESET_ALL}")
+
+def print_green(string):
+    print(f"{Fore.GREEN}{string}{Style.RESET_ALL}")
 
 def check_lines(filepath, cfg):
     found = defaultdict(set)
@@ -95,8 +102,13 @@ if __name__ == "__main__":
         logging.info("NONE")
 
     if incomplete_flag == False:
-        logging.info('\n')
-        logging.info("=============")
-        logging.info("You are done!")
-        logging.info("=============")
+        print_green('\n')
+        print_green("=============")
+        print_green("You are done!")
+        print_green("=============")
+    else:
+        print_red('\n')
+        print_red("=================")
+        print_red("You are not done!")
+        print_red("=================")
     logging.info('\n')
