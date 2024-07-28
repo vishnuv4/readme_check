@@ -19,8 +19,6 @@ Example README.md with common errors a student might make
 
 (S2) Test
 
-(S3) Some image
-
 (R1) 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet facilisis magna etiam tempor orci eu lobortis elementum nibh. Augue neque gravida in fermentum et sollicitudin. Id volutpat lacus laoreet non curabitur gravida arcu. Risus viverra adipiscing at in tellus integer feugiat. Habitasse platea dictumst quisque sagittis purus sit amet volutpat. Aliquet bibendum enim facilisis gravida neque convallis a cras. Massa ultricies mi quis hendrerit dolor magna eget est lorem. Fermentum posuere urna nec tincidunt praesent. Vitae auctor eu augue ut lectus arcu bibendum at varius. Aliquam id diam maecenas ultricies mi. In metus vulputate eu scelerisque felis. In vitae turpis massa sed. Bibendum at varius vel pharetra vel turpis nunc eget lorem. Libero justo laoreet sit amet.
@@ -45,9 +43,15 @@ Random filler text here.
 
 (R5) I'm running out of placeholder text ideas
 
-This is the answer to (R11).
-
 Blah blah blah
+
+(R9)
+
+(R7)
+
+(R8)
+
+(R10)
 
 (R2) < insert ESE 5190 stuff here >
 
@@ -55,12 +59,10 @@ Blah blah blah
 
 (R4) Test
 
-(R1) Test
-
 (I1)
 
 Image here
 
 (S4)
 
-(V2)
+(C3)
