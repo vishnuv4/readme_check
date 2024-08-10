@@ -26,6 +26,7 @@ An important note. Python 3.12 is only needed to configure this for new assignme
 - The .bat and .ps1 script both run an executable in the readme_check folder - that's just the python script in .exe format.
 - To create the executable, make the changes to the config struct. Run ```.\compile``` in a powershell terminal. This create a virtual environment with the required packages and then creates an executable out of the python script in the readme_check folder.
 - Repeat the first two steps to see the new configuration.
+- Each time you run the executable, a file is added in the "readme-check-logs" folder that keeps a record of previous checks. Ensure that those files are being created as well.
 
 ===========================================================================
 
