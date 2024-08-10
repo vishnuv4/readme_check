@@ -19,7 +19,7 @@ Write-output("Copying distributable to readme_check")
 if (Test-Path .\readme_check) {Remove-Item -Recurse readme_check}
 Copy-Item -Recurse dist\* readme_check\
 Write-Info("Removing build artifacts")
-Remove-Item -Recurse .\build
-Remove-Item -Recurse .\dist
+Remove-Item -Recurse -Force .\build
+Remove-Item -Recurse -Force .\dist
 Remove-Item .\check.spec
 deactivate
