@@ -17,11 +17,12 @@ We will configure a checker for each lab assignment and provide it in each assig
 
 # Try it out
 
-- First, double click the ```check.bat``` script. Or run ```.\check.ps1``` in a powershell terminal. 
+- First, clone the project repo and open a powershell terminal inside the readme_check project folder. (I recommend opening the folder in VSCode and opening powershell in that, so you can see the files as well)
+- Run the ```check.bat``` script. Or run ```.\check.ps1``` in the powershell terminal. 
 - You'll see an output. Try to fix the readme according to the messages until you're done.
 - The question configuration is defined in check.py - look for a dictionary named "config" at the top of that file and see that it is consistent with what the checker tells you.
 - The .bat and .ps1 script both run an executable in the readme_check folder - that's just the python script in .exe format.
-- To create the executable, make the changes to the config struct. Run ```.\compile```. This create a virtual environment with the required packages and then creates an executable out of the python script in the readme_check folder.
+- To create the executable, make the changes to the config struct. Run ```.\compile``` in a powershell terminal. This create a virtual environment with the required packages and then creates an executable out of the python script in the readme_check folder.
 - Repeat the first two steps to see the new configuration.
 
 ===========================================================================
