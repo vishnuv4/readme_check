@@ -1,6 +1,6 @@
 # About
 
-This is a script that will check if lines in the following format are present in the readme.
+This is a script that will help students keep track of their progress in assignments. In grad school we work in small chunks of time, whenever we get a chance - and sometimes if you don't work on something for a few days you can't remember where you left off. Or at least, I can't. So it's a quality of life thing that helps students stay on top of their assignments. 
 
 It'll check for missing answers, duplicate answers, and extra answers.
 
