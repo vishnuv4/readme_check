@@ -15,6 +15,8 @@ We will configure a checker for each lab assignment and provide it in each assig
 - The check.bat script
 - gitignore with readme_check_logs included
 
+An important note - Python 3.12 is only needed to configure this for new assignments and create the executable that students will run. The students won't need Python 3.12, or any non-native software - just a Windows system.
+
 # Try it out
 
 - First, clone the project repo and open a powershell terminal inside the readme_check project folder. (I recommend opening the folder in VSCode and opening powershell in that, so you can see the files as well)
