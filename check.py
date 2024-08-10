@@ -86,8 +86,7 @@ if __name__ == "__main__":
                         ])
     (missing_questions, extra_questions, included_items, duplicates) = check_lines(FILE_PATH, config)
 
-    incomplete_flag = False
-    warning_flag = False
+    assignment_state = "done"
 
     logging.info("\nINCLUDED:")
     if len(included_items) != 0:
@@ -98,8 +97,7 @@ if __name__ == "__main__":
 
     logging.info("\nDUPLICATE:")
     if len(duplicates) != 0:
-        incomplete_flag = True
-        warning_flag = True
+        assignment_state = "almost done"
         for key, val in duplicates.items():
             logging.info(f"{val}\t{key}")
     else:
@@ -107,8 +105,7 @@ if __name__ == "__main__":
 
     logging.info("\nEXTRA:")
     if len(extra_questions) != 0:
-        incomplete_flag = True
-        warning_flag = True
+        assignment_state = "almost done"
         for key, val in extra_questions.items():
             logging.info(f"{val}\t{key}")
     else:
@@ -116,25 +113,24 @@ if __name__ == "__main__":
     
     logging.info("\nMISSING:")
     if len(missing_questions) != 0:
-        incomplete_flag = True
-        warning_flag = False
+        assignment_state = "not done"
         for key, val in missing_questions.items():
             logging.info(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
     else:
         logging.info("NONE")
 
-    if incomplete_flag == False:
-        print_green('\n')
-        print_green("=============")
-        print_green("You are done!")
-        print_green("=============")
-    else:
-        if warning_flag == True:
+    match assignment_state:
+        case "done":
+            print_green('\n')
+            print_green("=============")
+            print_green("You are done!")
+            print_green("=============")
+        case "almost done":
             print_yellow('\n')
             print_yellow("====================")
             print_yellow("You are almost done!")
             print_yellow("====================")
-        else:
+        case "not done":
             print_red('\n')
             print_red("=================")
             print_red("You are not done!")
