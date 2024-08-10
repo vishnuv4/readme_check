@@ -46,9 +46,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 (R6)Test
 
-(R27) An answer
-
-(R1) Yet another answer
+(R1) an answer
 
 (I2)
 

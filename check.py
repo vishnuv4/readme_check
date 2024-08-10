@@ -28,6 +28,15 @@ def print_green(string):
 def print_yellow(string):
     print(f"{Fore.YELLOW}{string}{Style.RESET_ALL}")
 
+def print_colored_message(color_func, status):
+    message = f"You are {status}!"
+    line = "=" * len(message)
+
+    color_func('\n')
+    color_func(line)
+    color_func(message)
+    color_func(line)
+
 def check_lines(filepath, cfg):
     found = defaultdict(set)
     duplicate_dict = defaultdict(str)
@@ -121,18 +130,9 @@ if __name__ == "__main__":
 
     match assignment_state:
         case "done":
-            print_green('\n')
-            print_green("=============")
-            print_green("You are done!")
-            print_green("=============")
+            print_colored_message(print_green, "done")
         case "almost done":
-            print_yellow('\n')
-            print_yellow("====================")
-            print_yellow("You are almost done!")
-            print_yellow("====================")
+            print_colored_message(print_yellow, "almost done")
         case "not done":
-            print_red('\n')
-            print_red("=================")
-            print_red("You are not done!")
-            print_red("=================")
+            print_colored_message(print_red, "not done")
     logging.info('\n')
