@@ -64,13 +64,15 @@ Blah blah blah
 
 (R7) Empty answers "count" too because it only looks for this tag.
 
-(R8)
+# (R8) Even tags in headings work
+
+and it'll be picked up just fine
 
 (R10) I'm running out of placeholder text ideas
 
 (R2) < insert ESE 5190 stuff here >
 
-(R3) Blah
+## (R3) Blah
 
 (R4) Test
 
