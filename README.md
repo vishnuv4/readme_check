@@ -1,36 +1,28 @@
 # About
 
-This is a script that will help students keep track of their progress in assignments. In grad school we work in small chunks of time, whenever we get a chance - and sometimes if you don't work on something for a few days you can't remember where you left off. Or at least, I can't. So it's a quality of life thing that helps students stay on top of their assignments. Think of a semi-autograder that checks if you've answered the question or not.
-
-It'll check for missing answers, duplicate answers, and extra answers.
+Readme check tool.
 
 # Requirements
 
-Python 3.12. Might work with lower versions too but it was developed on 3.12. Works with Windows on powershell.
+Python 3.12
 
-# Usage
+# Setup
 
-We will configure a checker for each lab assignment and provide it in each assignment's skeleton repo. Things to include:
-- The readme_check folder for each lab assignment
-- The check.bat script
-- gitignore with readme_check_logs included
+Open a terminal in the same directory as check.py, config.py, and README.md
 
-An important note. Python 3.12 is only needed to configure this for new assignments and create the executable that students will run. The students won't need Python 3.12, or any non-native software. Just a Windows system.
+Install the package with ```pip install readme-check```. 
+
+A common suggestion - use a virtual environment.
 
 # Try it out
 
-- First, clone the project repo and open a powershell terminal inside the readme_check project folder. (I recommend opening the folder in VSCode and opening powershell in that, so you can see the files as well)
-- Run the ```check.bat``` script. Or run ```.\check.ps1``` in the powershell terminal. 
-- You'll see an output. Try to fix the readme according to the messages until you're done.
-- The question configuration is defined in check.py - look for a dictionary named "config" at the top of that file and see that it is consistent with what the checker tells you.
-- The .bat and .ps1 script both run an executable in the readme_check folder - that's just the python script in .exe format.
-- To create the executable, make the changes to the config struct. Run ```.\compile``` in a powershell terminal. This create a virtual environment with the required packages and then creates an executable out of the python script in the readme_check folder.
-- Repeat the first two steps to see the new configuration.
-- Each time you run the executable, a file is added in the "readme-check-logs" folder that keeps a record of previous checks. Ensure that those files are being created as well.
+In the root directory, run the ```check.py``` script.
+
+It will look at the configuration in the ```config.py``` file and check the readme according to that.
 
 ===========================================================================
 
-## Example README.md (with common errors a student might make)
+## Example README.md
 
 (S1) Test
 
@@ -45,8 +37,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 (V1) Test
 
 (R6)Test
-
-(R1) an answer
 
 (I2)
 
@@ -80,6 +70,8 @@ and it'll be picked up just fine
 
 Image here
 
-(S4)
-
 (C3)
+
+(I3)
+
+(I4)
