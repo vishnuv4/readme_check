@@ -20,6 +20,8 @@ In the root directory, run the ```check.py``` script.
 
 It will look at the configuration in the ```config.py``` file and check the readme according to that.
 
+Try removing some tags, or adding extra duplicate ones, and see what happens!
+
 ===========================================================================
 
 ## Example README.md
