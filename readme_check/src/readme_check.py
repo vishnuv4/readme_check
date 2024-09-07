@@ -118,7 +118,8 @@ def check_readme(config_local):
     if len(missing_questions) != 0:
         assignment_state = "not done"
         for key, val in missing_questions.items():
-            logging.info(f"{key}: {', '.join(f"{key}{num}" for num in val)}")
+            formatted_val = ', '.join(f"{key}{num}" for num in val)
+            logging.info(f"{key}: {formatted_val}")
     else:
         logging.info("NONE")
 
