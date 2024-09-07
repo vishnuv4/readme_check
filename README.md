@@ -12,7 +12,7 @@ Open a terminal in the same directory as check.py, config.py, and README.md
 
 Install the package with ```pip install readme-check```. 
 
-A common suggestion - use a virtual environment.
+Feel free to use a virtual environment.
 
 # Try it out
 
